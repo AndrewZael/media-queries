@@ -4,8 +4,8 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 :root{
-    --primary:#FFE0DC;
-    --secondary: #DBEED6;
+    --primary:#009FFF;
+    --secondary: #FFAE42;
     --gray: gray;
     --white: white;
     --dark: #121221;
@@ -25,31 +25,70 @@
     align-items: center;
     position: sticky;
     top: 0;
+    z-index: 2;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.sidebar .logo{
+    color: var(--white);
+    font-weight: bold;
+    letter-spacing: .15rem;
+}
+.sidebar .logo i{
+    margin-right: .3rem;
+    vertical-align: text-top;
+}
+.sidebar button{
+    background-color: transparent;
+    color: var(--white);
+    border: none;
+    font-size: 1.1rem;
+    width: 32px;
+    height: 32px;
 }
 .sidebar nav{
     display: none;
 }
+.sidebar nav ul{
+    list-style-type: none;
+    text-align: center;
+}
+.sidebar nav ul li a{
+    color: var(--white);
+    display: block;
+    padding: .7rem .5rem;
+    text-decoration: none;
+}
+.sidebar nav ul li a:hover{
+    color: var(--dark);
+}
 header{
     background-color: var(--secondary);
     position: sticky;
-    top: 2.5rem;
+    top: 3.375rem;
+    z-index: 1;
 }
 header form{
     flex-direction: column;
     align-items: center;
+    color: var(--white);
 }
 header form select{
-    margin-top: .6rem;
+    margin-top: 0.6rem;
     width: 100%;
+    padding: 0.7rem 0.5rem;
+    border-radius: 0.25rem;
 }
 article{
+    border-radius: 0.25rem;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 0 1rem;
     cursor: pointer;
     box-shadow: 0 0 0.188rem rgb(0 0 0 / 15%);
     transition: box-shadow 0.35s ease-in-out;
+    border: 1px solid var(--primary);
 }
 article:hover{
     box-shadow: 0 0 30px rgb(0 0 0 / 20%);
@@ -58,40 +97,53 @@ article:hover img{
     transform: scale(1.15);
 }
 article .wrap-img{
+    background-color: var(--white);
     margin-bottom: 2rem;
     border-radius: 50rem;
     overflow: hidden;
     width: 12.5rem;
     height: 12.5rem;
+    position: relative;
+    bottom: 3rem;
+    border: 2px solid var(--primary);
 }
 article .wrap-img img{
     width: 100%;
     transition: all 0.4s ease;
 }
+article div{
+    position: relative;
+    bottom: 2.5rem;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+}
 article p{
     margin-top: .65rem;
 }
 article .btn{
+    color: var(--white);
     text-decoration: none;
     background-color: var(--primary);
     padding: .7rem 1.5rem;
     border-radius: 0.25rem;
     margin-top: .9rem;
     font-weight: bold;
+    width: 120px;
 }
 footer, footer a{
     color: var(--white);
 }
 footer{
-    background-color: var(--secondary);
+    background-color: var(--primary);
     text-align: center;
 }
 footer nav{
     margin-bottom: .4rem;
 }
 main{
-    gap: 1.5rem;
-    padding: 1.5rem;
+    gap: 4.2rem 1.5rem;
+    padding: 4.5rem 1.5rem;
 }
 
 /*utilities*/
@@ -129,7 +181,7 @@ main{
     }
     header form{
         position: sticky;
-        top: 4rem;
+        top: 5rem;
     }
     main{
         grid-area: main;
@@ -161,11 +213,19 @@ main{
     }
     .sidebar .logo{
         position: sticky;
-        top: .75rem;
+        top: 1rem;
     }
     .sidebar nav{
         position: sticky;
         top: 2rem;
+    }
+    .sidebar nav ul{
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+    footer{
+        background-color: var(--secondary);
+        z-index: 2;
     }
     #site-content{
         grid-template-areas:
