@@ -1,0 +1,158 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --primary:blue;
+    --seconday: darkblue;
+    --gray: gray;
+    --white: white;
+}
+
+#site-content{
+    grid-template-columns: auto;
+    grid-template-rows: min-content min-content auto min-content;
+    min-height: 100vh;
+}
+.sidebar, header, main, footer, article{
+    padding: .7rem;
+}
+.sidebar{
+    background-color: var(--primary);
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+.sidebar nav{
+    display: none;
+}
+header{
+    background-color: var(--gray);
+    position: sticky;
+    top: 2.5rem;
+}
+header form{
+    flex-direction: column;
+    align-items: center;
+}
+header form select{
+    margin-top: .6rem;
+    width: 100%;
+}
+main{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    gap: 1rem;
+}
+article{
+    border-radius: 0.25rem;
+    box-shadow: 0 0 5px rgb(0 0 0 / 50%);
+    flex-direction: column;
+    align-items: center;
+}
+article .wrap-img{
+    margin-bottom: 1rem;
+}
+article .wrap-img img{
+    width: 100%;
+}
+article .btn{
+    color: var(--white);
+    text-decoration: none;
+    background-color: var(--primary);
+    padding: .7rem 1.5rem;
+    border-radius: 0.25rem;
+    margin-top: .4rem;
+}
+footer, footer a{
+    color: var(--white);
+}
+footer{
+    background-color: var(--seconday);
+    text-align: center;
+}
+footer nav{
+    margin-bottom: .4rem;
+}
+
+/*utilities*/
+.d-flex{
+    display: flex;
+}
+.d-grid{
+    display: grid;
+}
+
+/*Media*/
+@media (min-width:576px){
+    main{
+        grid-template-columns: auto auto;
+    }
+    #site-content{
+        grid-template-areas:
+        'sidebar sidebar' 
+        'header main' 
+        'footer footer';
+        grid-template-columns: 11.25rem auto;
+    }
+    .sidebar{
+        grid-area: sidebar;
+    }
+    .sidebar button{
+        display: none;
+    }
+    .sidebar nav{
+        display: block;
+    }
+    header{
+        grid-area: header;
+        position: static;
+    }
+    header form{
+        position: sticky;
+        top: 4rem;
+    }
+    main{
+        grid-area: main;
+    }
+    footer{
+        grid-area: footer;
+        z-index: 1;
+    }
+    
+}
+
+@media (min-width:768px){
+    main{
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media (min-width:992px){
+    main{
+        grid-template-columns: repeat(4, auto);
+    }
+    header{
+        position: sticky;
+        top:0;
+    }
+    .sidebar{
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    .sidebar .logo{
+        position: sticky;
+        top: .75rem;
+    }
+    .sidebar nav{
+        position: sticky;
+        top: 2rem;
+    }
+    #site-content{
+        grid-template-areas:
+        'sidebar header'
+        'sidebar main'
+        'footer fotter';
+    }
+}
