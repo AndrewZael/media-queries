@@ -1,12 +1,14 @@
 *{
     padding: 0;
     margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 :root{
-    --primary:blue;
-    --seconday: darkblue;
+    --primary:#FFE0DC;
+    --secondary: #DBEED6;
     --gray: gray;
     --white: white;
+    --dark: #121221;
 }
 
 #site-content{
@@ -14,7 +16,7 @@
     grid-template-rows: min-content min-content auto min-content;
     min-height: 100vh;
 }
-.sidebar, header, main, footer, article{
+.sidebar, header, footer{
     padding: .7rem;
 }
 .sidebar{
@@ -28,7 +30,7 @@
     display: none;
 }
 header{
-    background-color: var(--gray);
+    background-color: var(--secondary);
     position: sticky;
     top: 2.5rem;
 }
@@ -40,40 +42,56 @@ header form select{
     margin-top: .6rem;
     width: 100%;
 }
-main{
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    gap: 1rem;
-}
 article{
-    border-radius: 0.25rem;
-    box-shadow: 0 0 5px rgb(0 0 0 / 50%);
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 0.188rem rgb(0 0 0 / 15%);
+    transition: box-shadow 0.35s ease-in-out;
+}
+article:hover{
+    box-shadow: 0 0 30px rgb(0 0 0 / 20%);
+}
+article:hover img{
+    transform: scale(1.15);
 }
 article .wrap-img{
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 50rem;
+    overflow: hidden;
+    width: 12.5rem;
+    height: 12.5rem;
 }
 article .wrap-img img{
     width: 100%;
+    transition: all 0.4s ease;
+}
+article p{
+    margin-top: .65rem;
 }
 article .btn{
-    color: var(--white);
     text-decoration: none;
     background-color: var(--primary);
     padding: .7rem 1.5rem;
     border-radius: 0.25rem;
-    margin-top: .4rem;
+    margin-top: .9rem;
+    font-weight: bold;
 }
 footer, footer a{
     color: var(--white);
 }
 footer{
-    background-color: var(--seconday);
+    background-color: var(--secondary);
     text-align: center;
 }
 footer nav{
     margin-bottom: .4rem;
+}
+main{
+    gap: 1.5rem;
+    padding: 1.5rem;
 }
 
 /*utilities*/
@@ -153,6 +171,7 @@ footer nav{
         grid-template-areas:
         'sidebar header'
         'sidebar main'
-        'footer fotter';
+        'footer main';
+        grid-template-rows: min-content auto min-content;
     }
 }
