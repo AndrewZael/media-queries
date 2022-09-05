@@ -101,6 +101,10 @@ main{
     font-weight: bold;
     letter-spacing: .15rem;
 }
+.sidebar .logo h1{
+    vertical-align: middle;
+    font-size: 1.2rem;
+}
 .sidebar .logo i{
     margin-right: .3rem;
     vertical-align: text-top;
@@ -150,6 +154,9 @@ footer a,
 }
 .d-none{
     display: none;
+}
+.d-inline-block{
+    display: inline-block;
 }
 .text-center{
     text-align: center;
