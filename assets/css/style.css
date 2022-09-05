@@ -10,88 +10,26 @@
     --white: white;
     --dark: #121221;
 }
-
-#site-content{
-    grid-template-columns: auto;
-    grid-template-rows: min-content min-content auto min-content;
-    min-height: 100vh;
-}
-.sidebar, header, footer{
-    padding: .7rem;
-}
-.sidebar{
-    background-color: var(--primary);
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-.sidebar .logo{
-    color: var(--white);
-    font-weight: bold;
-    letter-spacing: .15rem;
-}
-.sidebar .logo i{
-    margin-right: .3rem;
-    vertical-align: text-top;
-}
-.sidebar button{
-    background-color: transparent;
-    color: var(--white);
-    border: none;
-    font-size: 1.1rem;
-    width: 32px;
-    height: 32px;
-}
-.sidebar nav{
-    display: none;
-}
-.sidebar nav ul{
-    list-style-type: none;
-    text-align: center;
-}
-.sidebar nav ul li a{
-    color: var(--white);
-    display: block;
-    padding: .7rem .5rem;
-    text-decoration: none;
-}
-.sidebar nav ul li a:hover{
-    color: var(--dark);
-}
 header{
     background-color: var(--secondary);
     position: sticky;
     top: 3.375rem;
     z-index: 1;
 }
-header form{
-    flex-direction: column;
-    align-items: center;
-    color: var(--white);
-}
 header form select{
     margin-top: 0.6rem;
     width: 100%;
     padding: 0.7rem 0.5rem;
-    border-radius: 0.25rem;
 }
 article{
-    border-radius: 0.25rem;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     padding: 0 1rem;
     cursor: pointer;
     box-shadow: 0 0 0.188rem rgb(0 0 0 / 15%);
     transition: box-shadow 0.35s ease-in-out;
-    border: 1px solid var(--primary);
+    border: 0.063rem solid var(--primary);
 }
 article:hover{
-    box-shadow: 0 0 30px rgb(0 0 0 / 20%);
+    box-shadow: 0 0 1.875rem rgb(0 0 0 / 17%);
 }
 article:hover img{
     transform: scale(1.15);
@@ -101,50 +39,98 @@ article .wrap-img{
     margin-bottom: 2rem;
     border-radius: 50rem;
     overflow: hidden;
-    width: 12.5rem;
-    height: 12.5rem;
+    width: 11.25rem;
+    height: 11.25rem;
     position: relative;
     bottom: 3rem;
-    border: 2px solid var(--primary);
+    border: 0.125rem solid var(--primary);
 }
 article .wrap-img img{
-    width: 100%;
     transition: all 0.4s ease;
 }
 article div{
     position: relative;
     bottom: 2.5rem;
-    flex-direction: column;
     width: 80%;
-    align-items: center;
 }
 article p{
     margin-top: .65rem;
 }
 article .btn{
-    color: var(--white);
-    text-decoration: none;
     background-color: var(--primary);
     padding: .7rem 1.5rem;
-    border-radius: 0.25rem;
     margin-top: .9rem;
     font-weight: bold;
-    width: 120px;
-}
-footer, footer a{
-    color: var(--white);
+    width: 7.5rem;
 }
 footer{
     background-color: var(--primary);
-    text-align: center;
 }
 footer nav{
     margin-bottom: .4rem;
 }
 main{
     gap: 4.2rem 1.5rem;
-    padding: 4.5rem 1.5rem;
+    padding: 4.5rem 1.1rem;
 }
+
+#site-content{
+    grid-template-columns: auto;
+    grid-template-rows: min-content min-content auto min-content;
+    min-height: 100vh;
+}
+.sidebar, header, footer{
+    padding: .85rem;
+}
+.sidebar{
+    background-color: var(--primary);
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.sidebar .logo{
+    font-weight: bold;
+    letter-spacing: .15rem;
+}
+.sidebar .logo i{
+    margin-right: .3rem;
+    vertical-align: text-top;
+}
+.sidebar button{
+    background-color: transparent;
+    border: none;
+    font-size: 1.1rem;
+    width: 2rem;
+    height: 2rem;
+}
+.sidebar nav ul{
+    list-style-type: none;
+}
+.sidebar nav ul li a{
+    padding: .7rem .5rem;
+}
+.sidebar nav ul li a:hover{
+    color: var(--dark);
+}
+
+/**/
+header form select,
+article,
+article .btn{
+    border-radius: 0.25rem;
+}
+header form, 
+article .btn, footer, 
+footer a, 
+.sidebar .logo, 
+.sidebar button, 
+.sidebar nav ul li a{
+    color: var(--white);
+}
+/**/
 
 /*utilities*/
 .d-flex{
@@ -153,10 +139,42 @@ main{
 .d-grid{
     display: grid;
 }
+.d-block{
+    display: block;
+}
+.d-none{
+    display: none;
+}
+.text-center{
+    text-align: center;
+}
+.text-decoration-none{
+    text-decoration: none;
+}
+.align-items-center{
+    align-items: center;
+}
+.flex-direction-column{
+    flex-direction: column;
+}
+/*utilities*/
 
 /*Media*/
 @media (min-width:576px){
+    header{
+        grid-area: header;
+        position: static;
+    }
+    header form{
+        position: sticky;
+        top: 5rem;
+    }
+    footer{
+        grid-area: footer;
+        z-index: 1;
+    }
     main{
+        grid-area: main;
         grid-template-columns: auto auto;
     }
     #site-content{
@@ -175,22 +193,6 @@ main{
     .sidebar nav{
         display: block;
     }
-    header{
-        grid-area: header;
-        position: static;
-    }
-    header form{
-        position: sticky;
-        top: 5rem;
-    }
-    main{
-        grid-area: main;
-    }
-    footer{
-        grid-area: footer;
-        z-index: 1;
-    }
-    
 }
 
 @media (min-width:768px){
@@ -204,24 +206,7 @@ main{
         grid-template-columns: repeat(4, auto);
     }
     header{
-        position: sticky;
         top:0;
-    }
-    .sidebar{
-        justify-content: flex-start;
-        flex-direction: column;
-    }
-    .sidebar .logo{
-        position: sticky;
-        top: 1rem;
-    }
-    .sidebar nav{
-        position: sticky;
-        top: 2rem;
-    }
-    .sidebar nav ul{
-        flex-direction: column;
-        margin-top: 2rem;
     }
     footer{
         background-color: var(--secondary);
@@ -234,4 +219,24 @@ main{
         'footer main';
         grid-template-rows: min-content auto min-content;
     }
+    .sidebar{
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    .sidebar .logo{
+        top: 1rem;
+    }
+    .sidebar nav{
+        top: 2rem;
+    }
+    .sidebar nav ul{
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+    header, 
+    .sidebar .logo, 
+    .sidebar nav{
+        position: sticky;
+    }
 }
+/*Media*/
