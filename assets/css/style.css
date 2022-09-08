@@ -125,6 +125,32 @@ main{
 .sidebar nav ul li a:hover{
     color: var(--dark);
 }
+.pagination{
+    justify-content: center;
+    grid-column-start: 1;
+}
+.pagination ul{
+    list-style-type: none;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+}
+
+.pagination a{
+    display: inline-block;
+    padding: .85rem;
+    color: var(--primary);
+    border-right: 1px solid var(--primary);
+    text-decoration: none;
+}
+.pagination a:hover,
+.pagination a.active{
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.pagination li:last-child a{
+    border: none;
+}
 
 /**/
 header form select,
@@ -206,11 +232,17 @@ footer a,
     .sidebar nav{
         display: block;
     }
+    .pagination{
+        grid-column-end: 3;
+    }
 }
 
 @media (min-width:768px){
     main{
         grid-template-columns: auto auto auto;
+    }
+    .pagination{
+        grid-column-end: 4;
     }
 }
 
@@ -250,6 +282,9 @@ footer a,
     .sidebar .logo, 
     .sidebar nav{
         position: sticky;
+    }
+    .pagination{
+        grid-column-end: 5;
     }
 }
 /*Media*/
